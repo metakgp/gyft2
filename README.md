@@ -1,6 +1,6 @@
 # gyft2
 
-Get Your Freaking Timetable Reborn
+Get Your Freaking Timetable **Reborn**
 
 ## About
 
@@ -20,56 +20,55 @@ Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HT
 
 ![Saving Timetabe 2](https://i.imgur.com/t8B0FwO.png)
 
-Now run the gyft script
+- **Step 2:** Now run the gyft script
 
   ```sh
   $ python3 gyft.py
   ```
 
-Your timetable will be saved in `data.txt`. Make any changes required appropriately in `data.txt`.
+![Steps](https://i.imgur.com/izerE9i.png)
 
-- **Step 2:** Decide whether you want to add the events to Google Calendar or
-    generate an ICS file from the data.
+If you chose to generate ICS file, you will have `timetable.ics` in the same directory.
+You can follow the guide given below ([taken from here](https://goo.gl/WvdUsP)) to add it to your Google Calendar:
 
-    Adding to Google Calendar requires an Internet connection
+1.  Open Google Calendar on a computer. Note: You can only import from a computer, not a phone or tablet.
 
-    ICS files are compatible with almost all Calendar applications (including
-    the iOS calendar application, Sunrise etc)
+2. In the top right, click Settings Settings > Settings.
 
-- **Step 2:** To generate an ICS file:
+3. Open the Calendars tab.
 
-    - **Step (i):** Run the command:
+4. Click Import calendar between the "My calendars" and "Other Calendars" sections.
 
-        ```sh
-        $ python3 generate_ics.py
-        # or for windows
-        > python generate_ics.py
-        ```
+5. Click Choose File and select the file you exported. The file should end in "ics" or "csv"
 
-        ```sh
-        # you can provide input and output file path to this python script
-        $ python3 generate_ics.py --input d.txt --output t.ics
-        # or for windows
-        > python3 generate_ics.py --input d.txt --output t.ics
-        ```
+6. Choose which calendar to add the imported events to. By default, events will be imported into your primary calendar.
 
-        ![After Command line steps](https://i.imgur.com/5jGn0ii.png)
+7. Click Import.
 
-    - **Step (ii):** Open your calendar application and import this ICS file
-        into it. For Google Calendar You can follow [this guide](https://support.google.com/calendar/answer/37118?hl=en).    
-        1.  Open Google Calendar on a computer. Note: You can only import from a computer, not a phone or tablet.
+If you for some reason chose No:
+- Your timetable will be saved in `data.txt`. Make any changes required appropriately in `data.txt`.
 
-        2. In the top right, click Settings Settings > Settings.
+## Bonus Step:
 
-        3. Open the Calendars tab.
+To generate an ICS file from `data.txt`:
+- **Step (i):** Run the command:
 
-        4. Click Import calendar between the "My calendars" and "Other Calendars" sections.
+    ```sh
+    $ python3 generate_ics.py
+    # or for windows
+    > python generate_ics.py
+    ```
 
-        5. Click Choose File and select the file you exported. The file should end in "ics" or "csv"
+    ```sh
+    # you can provide input and output file path to this python script
+    $ python3 generate_ics.py --input d.txt --output t.ics
+    # or for windows
+    > python3 generate_ics.py --input d.txt --output t.ics
+    ```
 
-        6. Choose which calendar to add the imported events to. By default, events will be imported into your primary calendar.
 
-        7. Click Import.
+- **Step (ii):** Open your calendar application and import this ICS file
+    into it. For Google Calendar You can follow [this guide](https://support.google.com/calendar/answer/37118?hl=en).
 
 
 ## License
