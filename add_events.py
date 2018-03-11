@@ -1,4 +1,4 @@
-## Adds your timetable from `data.txt` to Google Calendar.
+# Adds your timetable from `data.txt` to Google Calendar.
 from __future__ import print_function
 import httplib2
 import os
@@ -22,11 +22,13 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'gyft'
 
+
 def next_weekday(d, weekday):
     days_ahead = weekday - d.weekday()
-    if days_ahead <= 0: # Target day already happened this week
+    if days_ahead <= 0:  # Target day already happened this week
         days_ahead += 7
     return d + datetime.timedelta(days_ahead)
+
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -51,12 +53,13 @@ def get_credentials():
         flow.user_agent = APPLICATION_NAME
         if flags:
             credentials = tools.run_flow(flow, store, flags)
-        else: # Needed only for compatibility with Python 2.6
+        else:  # Needed only for compatibility with Python 2.6
             credentials = tools.run(flow, store)
         print('Storing credentials to ' + credential_path)
     return credentials
 
-### days to number
+
+#   days to number
 days = {}
 days["Monday"] = 0
 days["Tuesday"] = 1
@@ -65,6 +68,7 @@ days["Thursday"] = 3
 days["Friday"] = 4
 days["Saturday"] = 5
 ###
+
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -77,10 +81,10 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     # Get your timetable
-    with open('data.txt') as data_file:    
+    with open('data.txt') as data_file:
         data = json.load(data_file)
     # Get subjects code and their respective name
-    with open('subjects.json') as data_file:    
+    with open('subjects.json') as data_file:
         subjects = json.load(data_file)
     for day in data:
         startDate = next_weekday(now, days[day])
@@ -115,23 +119,32 @@ def main():
             # if (data[day][time][0] in subjects.keys()):
             if (data[day][time][0] in subjects.keys()):
                 event['summary'] = subjects[data[day][time][0]].title()
-            else: 
-                event['summary'] = data[day][time][0]                       
+            else:
+                event['summary'] = data[day][time][0]
             event['location'] = data[day][time][1]
             event['start'] = {}
-            start_time = startDate.replace(hour = replaceHour, minute = int(startMinute))
+            start_time = startDate.replace(
+                hour=replaceHour, minute=int(startMinute)
+            )
             event['start']['dateTime'] = start_time.__str__().replace(" ", "T")
             event['start']['timeZone'] = "Asia/Kolkata"
             event['end'] = {}
-            event['end']['dateTime'] = (start_time + datetime.timedelta(hours = int(data[day][time][2]))).__str__().replace(" ", "T")
+            event['end']['dateTime'] = (
+                start_time +
+                datetime.timedelta(hours=int(data[day][time][2]))
+            ).__str__().replace(" ", "T")
             event['end']['timeZone'] = "Asia/Kolkata"
             event['recurrence'] = ['RRULE:FREQ=WEEKLY;UNTIL=20170419T000000Z']
-            recurring_event = service.events().insert(calendarId='primary', body=event).execute()
+            recurring_event = service.events().insert(
+                                calendarId='primary',
+                                body=event
+                            ).execute()
             if (DEBUG):
-                print (event)
+                print(event)
                 break
         if (DEBUG):
             break
+
 
 if __name__ == '__main__':
     main()
