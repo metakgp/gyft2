@@ -14,9 +14,12 @@ Gets your timetable from ERP and gives you an **ICS file** which you can add in 
 
 Log in to ERP portal, and visit [https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp](https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp).
 ![Timetable Page](https://i.imgur.com/c9aITJ7.png)
-Save this page in the Directory using `Ctrl+S` on any browser (Use Web page, HTML only)
+Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HTML only`)
+
 ![Saving Timetabe 1](https://i.imgur.com/thQb8zj.png)
+
 ![Saving Timetabe 2](https://i.imgur.com/t8B0FwO.png)
+
 Now run the gyft script
 
   ```sh
@@ -53,7 +56,21 @@ Your timetable will be saved in `data.txt`. Make any changes required appropriat
         ![After Command line steps](https://i.imgur.com/5jGn0ii.png)
 
     - **Step (ii):** Open your calendar application and import this ICS file
-        into it. For Google Calendar You can follow [this guide](https://support.google.com/calendar/answer/37118?hl=en).
+        into it. For Google Calendar You can follow [this guide](https://support.google.com/calendar/answer/37118?hl=en).    
+        1.  Open Google Calendar on a computer. Note: You can only import from a computer, not a phone or tablet.
+
+        2. In the top right, click Settings Settings > Settings.
+
+        3. Open the Calendars tab.
+
+        4. Click Import calendar between the "My calendars" and "Other Calendars" sections.
+
+        5. Click Choose File and select the file you exported. The file should end in "ics" or "csv"
+
+        6. Choose which calendar to add the imported events to. By default, events will be imported into your primary calendar.
+
+        7. Click Import.
+
 
 ## License
 
