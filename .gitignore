@@ -1,0 +1,5 @@
+client_secret.json
+*.pyc
+*~
+data.txt
+*.ics
