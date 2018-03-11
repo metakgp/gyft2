@@ -2,4 +2,5 @@ client_secret.json
 *.pyc
 *~
 data.txt
+view_stud_time_table.html
 *.ics
