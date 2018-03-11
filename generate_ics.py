@@ -127,10 +127,10 @@ def main():
                 summary = subjects[subject_code].title()
             else:
                 print(
-                    'ERROR: Our subjects database does not have %s in it.' %
+                    '\n :( Our subjects database does not have %s in it.' %
                     subject_code)
                 summary = input(
-                    'INPUT: Please input the name of the course %s: ' %
+                    '\t  Please input the name of the course %s: ' %
                     subject_code)
 
                 subjects[subject_code] = str(summary)
@@ -160,10 +160,10 @@ def main():
 
     with open(OUTPUT_FILENAME, 'wb') as f:
         f.write(cal.to_ical())
-        print("INFO: Your timetable has been written to %s" % OUTPUT_FILENAME)
+        print("\n:) Your timetable has been written to %s" % OUTPUT_FILENAME)
         print("You can now add this file to your Calendar")
         print("To add it to google Calendar visit tutorial at :")
-        print("     https://goo.gl/WvdUsP")
+        print("     https://goo.gl/WvdUsP \n")
 
 
 if __name__ == '__main__':
