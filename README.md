@@ -6,7 +6,14 @@ Get Your Freaking Timetable **Reborn**
 
 Gets your timetable from ERP and gives you an **ICS file** which you can add in any common calendar application (such as Google Calendar).
 
-**Note:** Please use this utility with `python3`.
+> **Note:** Please use this utility with `python3`. You should have python installed, Also run this to install the dependencies
+
+```sh
+$ pip3 install bs4 icalendar #linux/mac
+$ pip install bs4 icalendar #windows
+```
+
+
 
 ## How to use the program?
 
@@ -22,8 +29,16 @@ Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HT
 
 - **Step 2:** Now run the gyft script
 
+for Linux/Mac:
+
   ```sh
   $ python3 gyft.py
+  ```
+
+for Windows:
+
+  ```sh
+  > python gyft.py
   ```
 
 ![Steps](https://i.imgur.com/izerE9i.png)
