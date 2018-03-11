@@ -13,15 +13,15 @@ times = []
 # this is done because the erp does some shit
 del_rows = []
 for o in range(len(rows)):
-    print(o, len(rows[o]))
+    # print(o, len(rows[o]))
     if len(rows[o]) < 5:
         del_rows.append(o)
 
 for index_del in del_rows:
     del rows[index_del]
 
-for row in rows:
-    print(len(row))
+# for row in rows:
+#     print(len(row))
 # #### For timings
 
 for a in rows[0].findAll('td'):
@@ -48,7 +48,13 @@ for i in range(1, len(rows)):
     for a in range(1, len(tds)):
         txt = tds[a].find('b').text.strip()
         if (len(txt) >= 7):
-            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7], tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan'))))
+            timetable_dict[days[i]][times[time]] = list(
+                (
+                    tds[a].find('b').text[:7],
+                    tds[a].find('b').text[7:],
+                    int(tds[a]._attr_value_as_string('colspan'))
+                )
+            )
         time = time + int(tds[a]._attr_value_as_string('colspan'))
 
 
@@ -71,19 +77,34 @@ for day in timetable_dict.keys():
             flattened_time += 12
         if (not timetable_dict[day][time][0] in subject_timings.keys()):
             subject_timings[timetable_dict[day][time][0]] = []
-        subject_timings[timetable_dict[day][time][0]].append([flattened_time, timetable_dict[day][time][2]])
+        subject_timings[timetable_dict[day][time][0]].append(
+            [flattened_time, timetable_dict[day][time][2]]
+        )
     subject_timings = merge_slots(subject_timings)
     for time in list(timetable_dict[day].keys()):
         flattened_time = int(time[:time.find(':')])
         if (flattened_time < 6):
             flattened_time += 12
-        if (not flattened_time == subject_timings[timetable_dict[day][time][0]][0]):
-            del (timetable_dict[day][time])
+        if (
+            not flattened_time == subject_timings[
+                timetable_dict[day][time][0]
+            ][0]
+        ):
+                del (timetable_dict[day][time])
         else:
-            timetable_dict[day][time][2] = subject_timings[timetable_dict[day][time][0]][1]
+            timetable_dict[day][time][2] = subject_timings[
+                    timetable_dict[day][time][0]
+                ][1]
 
 
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent=4, ensure_ascii=False)
 
-print("\n\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
+print(
+    '''
+    Timetable saved to data.txt file. Be sure to edit this file,
+    to have desired names of subjects rather than subject codes.
+
+    Also, run generate_ics.py to generate the ics file
+    '''
+)

@@ -21,7 +21,8 @@ args = parser.parse_args()
 
 DEBUG = False
 GENERATE_ICS = True
-TIMETABLE_DICT_RE = '([0-9]{1,2}):([0-9]{1,2}):([AP])M-([0-9]{1,2}):([0-9]{1,2}):([AP])M'
+TIMETABLE_DICT_RE = \
+    '([0-9]{1,2}):([0-9]{1,2}):([AP])M-([0-9]{1,2}):([0-9]{1,2}):([AP])M'
 timetable_dict_parser = re.compile(TIMETABLE_DICT_RE)
 
 INPUT_FILENAME = args.input if args.input else "data.txt"
@@ -160,6 +161,9 @@ def main():
     with open(OUTPUT_FILENAME, 'wb') as f:
         f.write(cal.to_ical())
         print("INFO: Your timetable has been written to %s" % OUTPUT_FILENAME)
+        print("You can now add this file to your Calendar")
+        print("To add it to google Calendar visit tutorial at :")
+        print("     https://goo.gl/WvdUsP")
 
 
 if __name__ == '__main__':
