@@ -1,45 +1,21 @@
 from bs4 import BeautifulSoup as bs
 import json
 import generate_ics
+from sys import exit
+import os.path
+from Query_yn import query_yes_no
 
-import sys
+# Input the file
+if os.path.isfile('view_stud_time_table.html'):
+    with open('view_stud_time_table.html', 'r') as myfile:
+        r = myfile.read()
+elif os.path.isfile('Time Table View.html'):
+    with open('Time Table View.html', 'r') as myfile:
+        r = myfile.read()
+else:
+    print("HTML file not found")
+    exit()
 
-
-def query_yes_no(question, default="yes"):
-    """Ask a yes/no question via raw_input() and return their answer.
-
-    "question" is a string that is presented to the user.
-    "default" is the presumed answer if the user just hits <Enter>.
-        It must be "yes" (the default), "no" or None (meaning
-        an answer is required of the user).
-
-    The "answer" return value is True for "yes" or False for "no".
-    """
-    valid = {"yes": True, "y": True, "ye": True,
-             "no": False, "n": False}
-    if default is None:
-        prompt = " [y/n] "
-    elif default == "yes":
-        prompt = " [Y/n] "
-    elif default == "no":
-        prompt = " [y/N] "
-    else:
-        raise ValueError("invalid default answer: '%s'" % default)
-
-    while True:
-        sys.stdout.write(question + prompt)
-        choice = input().lower()
-        if default is not None and choice == '':
-            return valid[default]
-        elif choice in valid:
-            return valid[choice]
-        else:
-            sys.stdout.write("Please respond with 'yes' or 'no' "
-                             "(or 'y' or 'n').\n")
-
-
-with open('view_stud_time_table.html', 'r') as myfile:
-    r = myfile.read()
 # print(r)
 soup = bs(r, 'html.parser')
 rows_head = soup.findAll('table')[2]
@@ -47,15 +23,19 @@ rows = rows_head.findAll('tr')
 times = []
 
 # Delete the rows that have less elements
-# this is done because the erp does some shit
+# this is done because the erp does shit see issues and solution
 del_rows = []
-for o in range(len(rows)):
-    # print(o, len(rows[o]))
-    if len(rows[o]) < 5:
-        del_rows.append(o)
+for i in range(1, len(rows)):
+    HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
+    print(HeaderRows)
+    if len(HeaderRows) is 0:
+        del_rows.append(i)
 
 for index_del in del_rows:
     del rows[index_del]
+
+for row in rows:
+    print(row)
 
 # for row in rows:
 #     print(len(row))
@@ -134,7 +114,7 @@ for day in timetable_dict.keys():
                 ][1]
 
 
-with open('data.txt', 'w') as outfile:
+with open('data.txt', 'w+') as outfile:
     json.dump(timetable_dict, outfile, indent=4, ensure_ascii=False)
 
 print(
