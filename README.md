@@ -1,10 +1,11 @@
-# gyft2
+![GYFT 2](gyft2.png)
 
 Get Your Freaking Timetable **Reborn**
 
+
 ## About
 
-Gets your timetable from ERP and gives you an **ICS file** which you can add in any common calendar application (such as Google Calendar).
+Processes your timetable from ERP and gives you an **ICS file** which you can add in any common calendar application (such as Google Calendar).
 
 > **Note:** Please use this utility with `python3`. You should have python installed, Also run this to install the dependencies
 
@@ -62,6 +63,8 @@ You can follow the guide given below ([taken from here](https://goo.gl/WvdUsP)) 
 
 If you for some reason chose No:
 - Your timetable will be saved in `data.txt`. Make any changes required appropriately in `data.txt`.
+
+> Please star the project if you found it useful
 
 ## Bonus Step:
 
