@@ -33,13 +33,13 @@ Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HT
 for Linux/Mac:
 
   ```sh
-  $ python3 gyft.py
+  $ python3 gyft2.py
   ```
 
 for Windows:
 
   ```sh
-  > python gyft.py
+  > python gyft2.py
   ```
 
 ![Steps](https://i.imgur.com/izerE9i.png)
