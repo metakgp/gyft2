@@ -34,8 +34,8 @@ for i in range(1, len(rows)):
 for index_del in del_rows:
     del rows[index_del]
 
-for row in rows:
-    print(row)
+# for row in rows:
+#     print(row)
 
 # for row in rows:
 #     print(len(row))
