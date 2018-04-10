@@ -42,7 +42,7 @@ for Windows:
   > python gyft2.py
   ```
 
-![Steps](https://i.imgur.com/izerE9i.png)
+![Steps](https://i.imgur.com/N2jlfRQ.png)
 
 If you chose to generate ICS file, you will have `timetable.ics` in the same directory.
 You can follow the guide given below ([taken from here](https://goo.gl/WvdUsP)) to add it to your Google Calendar:
