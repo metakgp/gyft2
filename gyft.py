@@ -22,7 +22,7 @@ rows_head = soup.findAll('table')[2]
 rows = rows_head.findAll('tr')
 times = []
 
-# Delete the rows that have less elements
+# Delete the rows that doesn't have tableheader, basically without a weekday
 # this is done because the erp does shit see issues and solution
 del_rows = []
 for i in range(1, len(rows)):
