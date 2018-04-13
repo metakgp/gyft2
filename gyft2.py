@@ -30,6 +30,8 @@ for i in range(1, len(rows)):
     if len(HeaderRows) is 0:
         del_rows.append(i)
 
+# print(del_rows)
+
 for index_del in sorted(del_rows, reverse=True):
     del rows[index_del]
 
