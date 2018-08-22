@@ -80,8 +80,8 @@ def merge_slots(in_dict):
     for a in in_dict:
         in_dict[a] = sorted(in_dict[a])
         for i in range(len(in_dict[a]) - 1, 0, -1):
-            if (in_dict[a][i][0] == in_dict[a][i-1][0] + in_dict[a][i-1][1]):
-                in_dict[a][i-1][1] = in_dict[a][i][1] + in_dict[a][i-1][1]
+            if (in_dict[a][i][0] == in_dict[a][i - 1][0] + in_dict[a][i - 1][1]):
+                in_dict[a][i - 1][1] = in_dict[a][i][1] + in_dict[a][i - 1][1]
                 in_dict[a].remove(in_dict[a][i])
         in_dict[a] = in_dict[a][0]
     return (in_dict)
@@ -111,8 +111,8 @@ for day in timetable_dict.keys():
                 del (timetable_dict[day][time])
         else:
             timetable_dict[day][time][2] = subject_timings[
-                    timetable_dict[day][time][0]
-                ][1]
+                timetable_dict[day][time][0]
+            ][1]
 
 
 with open('data.txt', 'w+') as outfile:
