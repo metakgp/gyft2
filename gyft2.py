@@ -65,7 +65,7 @@ for i in range(1, len(rows)):
     time = 0
     for a in range(1, len(tds)):
         if not tds[a].find('b'):
-            continue 
+            continue
         txt = tds[a].find('b').text.strip()
         if (len(txt) >= 7):
             timetable_dict[days[i]][times[time]] = list(
