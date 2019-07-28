@@ -20,7 +20,7 @@ $ pip install bs4 icalendar #windows
 
 - **Step 1:** Get your timetable from ERP:
 
-Log in to ERP portal, and visit [https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp](https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp).
+Log in to ERP portal, and visit [https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp](https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp).
 ![Timetable Page](https://i.imgur.com/c9aITJ7.png)
 Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HTML only`)
 
