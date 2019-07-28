@@ -72,10 +72,10 @@ for i in range(1, len(rows)):
                 (
                     tds[a].find('b').text[:7],
                     tds[a].find('b').text[7:],
-                    int(tds[a]._attr_value_as_string('colspan'))
+                    int(tds[a].attrs['colspan'])
                 )
             )
-        time = time + int(tds[a]._attr_value_as_string('colspan'))
+        time = time + int(tds[a].attrs['colspan'])
 
 
 def merge_slots(in_dict):
