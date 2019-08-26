@@ -13,8 +13,41 @@ elif os.path.isfile('Time Table View.html'):
     with open('Time Table View.html', 'r') as myfile:
         r = myfile.read()
 else:
-    print("HTML file not found")
-    exit()
+    # print("HTML file not found,please enter the path to name of your timetable \'.html\' file(with full path to it):")
+    # file = input()
+    dir_path = os.path.dirname(os.path.realpath(__file__)) 
+    r = None
+  
+    for root, dirs, files in os.walk(dir_path):
+        # print(dirs)
+
+        #removing some unwanted dirs
+        if ".git" in dirs:
+            dirs.remove (".git")
+        if ".vscode" in dirs:
+            dirs.remove (".vscode")
+        if ".ropeproject" in dirs:
+            dirs.remove (".ropeproject")
+        if "__pycache__" in dirs:
+            dirs.remove ("__pycache__")
+
+        for dir in dirs:  
+            if os.path.isfile(os.path.join(dir , 'view_stud_time_table.html')):
+                with open(os.path.join(dir , 'view_stud_time_table.html'), 'r') as myfile:
+                    r = myfile.read()
+                break
+
+            elif os.path.isfile(os.path.join(dir , 'Time Table View.html')):
+                with open(os.path.join(dir , 'Time Table View.html'), 'r') as myfile:
+                    r = myfile.read()
+                break
+
+        if r is not None:
+            break
+
+    if r is None:
+        print("HTML file not found, while downloading make sure you select the folder of gyft2 to save the \".html\" file")
+        exit()
 
 # print(r)
 soup = bs(r, 'html.parser')
