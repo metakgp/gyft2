@@ -22,7 +22,7 @@ $ pip install bs4 icalendar #windows
 
 Log in to ERP portal, and visit [https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp](https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp).
 ![Timetable Page](https://i.imgur.com/c9aITJ7.png)
-Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HTML only`) and make sure to  select the folder of gyft2 for saving the file
+Save this page in the Directory using `Ctrl+S` on any browser (Use `Web page, HTML only`) and make sure to  select the folder of gyft2 for saving the file.
 
 ![Saving Timetabe 1](https://i.imgur.com/thQb8zj.png)
 
@@ -44,7 +44,7 @@ for Windows:
 
 ![Steps](https://i.imgur.com/N2jlfRQ.png)
 
-If you chose to generate ICS file, you will have `timetable.ics` in the same directory.
+If you choose to generate ICS file, you will have `timetable.ics` in the same directory.
 You can follow the guide given below ([taken from here](https://goo.gl/WvdUsP)) to add it to your Google Calendar:
 
 1.  Open Google Calendar on a computer. Note: You can only import from a computer, not a phone or tablet.
