@@ -6,10 +6,10 @@ import build_event
 # import pytz
 # SEM_BEGIN = datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
 # SEM BEGIN, and MID_TERM_BEGIN are one day before due to weird calculations
-SEM_BEGIN = build_event.generateIndiaTime(2021, 8, 9, 0, 0)
-MID_TERM_BEGIN = build_event.generateIndiaTime(2021, 10, 11, 0, 0)
-MID_TERM_END = build_event.generateIndiaTime(2021, 10, 17, 23, 59)
-END_TERM_BEGIN = build_event.generateIndiaTime(2021, 11, 18, 0, 0)
+SEM_BEGIN = build_event.generateIndiaTime(2022, 1, 4, 0, 0)
+MID_TERM_BEGIN = build_event.generateIndiaTime(2022, 2, 21, 0, 0)
+MID_TERM_END = build_event.generateIndiaTime(2022, 2, 25, 23, 59)
+END_TERM_BEGIN = build_event.generateIndiaTime(2022, 4, 7, 0, 0)
 
 # Sanity check
 
