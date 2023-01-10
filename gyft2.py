@@ -21,16 +21,6 @@ else:
     for root, dirs, files in os.walk(dir_path):
         # print(dirs)
 
-        #removing some unwanted dirs
-        if ".git" in dirs:
-            dirs.remove (".git")
-        if ".vscode" in dirs:
-            dirs.remove (".vscode")
-        if ".ropeproject" in dirs:
-            dirs.remove (".ropeproject")
-        if "__pycache__" in dirs:
-            dirs.remove ("__pycache__")
-
         for dir in dirs:  
             if os.path.isfile(os.path.join(dir , 'view_stud_time_table.html')):
                 with open(os.path.join(dir , 'view_stud_time_table.html'), 'r') as myfile:
