@@ -7,3 +7,6 @@ Time Table View.html
 Time Table View_files
 *.ics
 env
+.envrc
+.vscode
+.ropeproject
